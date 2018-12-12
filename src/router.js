@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+import Delivery from '@/components/Delivery';
+import Contact from '@/components/Contact';
+import Product from '@/components/product';
 
 Vue.use(Router);
 
@@ -9,17 +11,24 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home,
+      path: '/delivery',
+      name: 'delivery',
+      component: Delivery,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/contact',
+      name: 'contact',
+      component: Contact,
+    },
+    {
+      path: '/:productId',
+      name: 'product',
+      component: Product,
+    },
+    {
+      path: '/',
+      name: 'home',
+      component: Product,
     },
   ],
 });
