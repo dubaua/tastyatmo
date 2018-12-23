@@ -1,8 +1,9 @@
 /* eslint-disable no-param-reassign */
 const prepareProduct = (product) => {
-  if (typeof product.versions === 'undefined') {
+  if (typeof product.versions !== 'object') {
     return product;
   }
+
   // code below converts array of versions to hashMap
   return {
     ...product,
@@ -22,7 +23,7 @@ const getProductsByKey = key => fetch(`/cockpit/api/collections/get/${key}?token
   .then(response => response.json())
   .then(blob => blob.entries.map(prepareProduct));
 
-const getProductDescriptionByKey = key => fetch(`/cockpit/api/regions/data/${key}?token=${process.env.VUE_APP_API_KEY}`)
+const getRegionByKey = key => fetch(`/cockpit/api/regions/data/${key}?token=${process.env.VUE_APP_API_KEY}`)
   .then(response => response.json())
   .then(blob => blob);
 
@@ -47,5 +48,8 @@ const saveOrder = order => fetch(`/cockpit/api/collections/save/orders?token=${p
   .then(blob => blob);
 
 export default {
-  getProductsByKey, getProductDescriptionByKey, sendForm, saveOrder,
+  getProductsByKey,
+  getRegionByKey,
+  sendForm,
+  saveOrder,
 };

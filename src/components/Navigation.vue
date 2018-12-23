@@ -1,9 +1,7 @@
 <template lang="pug">
   .menu(:class="{'menu--compact':isCompact}")
     template(v-for="link in menu")
-      router-link(:to="link.to", @click.native="closeMenu").menu__link {{link.label}}
-    router-link(to="/delivery", @click.native="closeMenu").menu__link Доставка
-    router-link(to="/contact", @click.native="closeMenu").menu__link Контакты
+      router-link(:to="link.to", @click.native="closeMenu").menu__link {{ link.label }}
 </template>
 
 <script>
@@ -20,28 +18,31 @@ export default {
         {
           to: '/',
           label: 'Wok',
-          glyph: 'wok',
         },
         {
           to: '/pizza',
           label: 'Пицца',
-          glyph: 'pizza',
         },
         {
           to: '/pies',
           label: 'Пироги',
-          glyph: 'pies',
         },
         {
           to: '/sushi',
           label: 'Суши',
-          glyph: 'sushi',
         },
+        // {
+        //   to: '/drinks',
+        //   label: 'Напитки',
+        // },
         {
-          to: '/drinks',
-          label: 'Напитки',
-          glyph: 'drinks',
+          to: '/delivery',
+          label: 'Доставка',
         },
+        // {
+        //   to: '/contact',
+        //   label: 'Контакты',
+        // },
       ],
     };
   },

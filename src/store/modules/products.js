@@ -8,10 +8,9 @@ const arrayOfProducts = [product];
 
 const state = {
   pizza: null,
-  desserts: null,
+  sushi: null,
+  wok: null,
   drinks: null,
-  salad: null,
-  snack: null,
 };
 
 // getters
@@ -22,7 +21,6 @@ const getters = {
 // actions
 const actions = {
   fetchProductsByKey({ commit }, key) {
-    // fetch also descriptiuons
     api.getProductsByKey(key).then(products => commit('setProducts', { products, key }));
   },
 };

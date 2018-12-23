@@ -4,6 +4,7 @@ import Vue from 'vue';
 import VueMq from 'vue-mq';
 import Vue2TouchEvents from 'vue2-touch-events';
 import VueFormGenerator from 'vue-form-generator';
+import YmapPlugin from 'vue-yandex-maps';
 import '@/components/globals';
 import App from './App';
 import router from './router';
@@ -19,6 +20,7 @@ Vue.use(VueMq, {
     desktop: Infinity,
   },
 });
+Vue.use(YmapPlugin);
 
 /* eslint-disable no-new */
 new Vue({

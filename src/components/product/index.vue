@@ -14,7 +14,7 @@
         template(v-if="products")
           .col.col-xs-12.col-sm-6.col-lg-4.col-xxl-3(
             v-for="(card, id, index) in products",
-            :class="'col-xs-order-'+index")
+            :style="'order: '+index")
             card(:product="card")
           .col.col-xs-12.col-sm-6.col-lg-4.col-xxl-3.col-xs-order-2.col-sm-order-2.col-lg-order-1.col-xxl-order-2
             banner(src="/static/banner-5-1.png", background="blank")

@@ -23,13 +23,14 @@ const store = new Vuex.Store({
   plugins: [vuexPersist.plugin],
 });
 
-const keys = ['pizza', 'pies', 'sushi', 'wok', 'drinks'];
+const keys = ['pizza', 'sushi', 'wok', 'drinks'];
 
 keys.forEach((key) => {
   Promise.all([
     store.dispatch('fetchProductsByKey', key),
-    // store.dispatch('fetchProductDescriptionByKey', key),
   ]);
 });
+
+store.dispatch('getPiesConfig');
 
 export default store;

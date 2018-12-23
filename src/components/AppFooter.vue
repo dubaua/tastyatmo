@@ -5,10 +5,10 @@
       .hamburger-box
         .hamburger-inner
   router-link(to="/", @click.native="closeAll").footer__logo
-    icon(glyph="logo-compact", :width="91", :height="48")
+    icon(glyph="logo-compact", :width="214", :height="48")
   button.footer__button.cart-button(@click="scheduleAction({next:'toggleCart',blocking:'Menu'})")
     .cart-button__label(v-if="totalAmount") {{cartLabel}}
-    icon(glyph="shopping-bag", :width="48", :height="48")
+    icon(glyph="shopping-cart", :width="48", :height="48")
 </template>
 
 <script>
@@ -43,7 +43,7 @@ export default {
   z-index: 10;
   display: flex;
   justify-content: space-between;
-  background: $color-background;
+  background: $color-background--contrast;
 
   &__button {
     max-width: $base * 4;
@@ -55,13 +55,17 @@ export default {
     margin: 0;
 
     & .icon {
-      fill: $color-text;
+      fill: $color-text--contrast;
     }
   }
   &__logo {
     flex-grow: 1;
     text-align: center;
-    color: $color-text;
+    fill: $color-text--contrast;
+    svg {
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 }
 

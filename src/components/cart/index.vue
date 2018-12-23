@@ -1,7 +1,7 @@
 <template lang="pug">
   .cart
     .cart__empty(v-if="totalAmount === 0")
-      | Корзина, пока что, пуста ;(
+      | Корзина пока что, пуста ;(
     .cart__filled(v-else)
       .cart__contents
         position(

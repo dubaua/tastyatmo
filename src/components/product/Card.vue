@@ -31,7 +31,7 @@ export default {
   },
   computed: {
     isSimpleProduct() {
-      return typeof this.product.versions === 'undefined';
+      return typeof this.product.versions !== 'object';
     },
     price() {
       return this.isSimpleProduct
