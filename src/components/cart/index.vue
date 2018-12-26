@@ -11,7 +11,6 @@
       .cart__total
         .cart__total-label Всего
         .cart__total-sum {{totalCost}} ₽
-      order
 </template>
 
 <script>
@@ -41,12 +40,11 @@ export default {
 <style lang="scss">
 @import "~@/styles/_globals";
 .cart {
+  overflow: auto;
   display: flex;
   flex-direction: column;
-
+  padding: $base;
   &__empty {
-    margin: auto;
-    padding-bottom: 4em;
     text-align: center;
   }
 
@@ -57,12 +55,12 @@ export default {
   &__total {
     display: flex;
     justify-content: space-between;
-    border-top: 1px solid $color-unactive;
+    border-top: 1px solid rgba($color-text--contrast, 0.2);
     margin: $base 0;
     padding-top: $base;
   }
   &__total-sum {
-    padding-right: $base * 2.5;
+    /* padding-right: $base * 2.5; */
   }
 }
 </style>

@@ -23,17 +23,22 @@
         title="Корзина",
       )
         cart
+        order
       app-footer
     template(v-else)
       header.desktop-header
         navigation(isCompact)
       aside.desktop-panel
         logo.desktop-panel__logo
-        info.desktop-panel__info
-        cart.desktop-panel__cart
-        .desktop-panel__footer
-          | &copy; {{getYear}} Атмосфера вкуса. Разработал
-          a(href="mailto:dubaua@gmail.com") dubaua
+        info
+        .desktop-panel__cart
+          cart
+          status
+      transition(name="fade")
+        .cart-popup(v-if="page.isCartOpen")
+          .cart-popup__title Корзина
+          cart
+          order
 </template>
 
 <script>
@@ -41,6 +46,8 @@ import Product from '@/components/product';
 import Navigation from '@/components/Navigation';
 import Info from '@/components/Info';
 import Cart from '@/components/cart';
+import Order from '@/components/Order';
+import Status from '@/components/cart/Status';
 import AppFooter from '@/components/AppFooter';
 import Logo from '@/components/Logo';
 import { mapState, mapActions, mapGetters } from 'vuex';
@@ -50,6 +57,8 @@ export default {
   components: {
     Product,
     Cart,
+    Order,
+    Status,
     AppFooter,
     Logo,
     Info,
@@ -101,16 +110,8 @@ export default {
   background: $color-background--contrast;
   color: $color-text--contrast;
 
-  &__footer {
-    font-size: $base * 0.67;
-    text-align: center;
-    margin: auto 0 $base;
-    color: $color-shade--muted;
-    a {
-      color: inherit;
-      display: inline-block;
-      margin-left: 0.4em;
-    }
+  &__cart {
+    margin-top: auto;
   }
 }
 
@@ -130,5 +131,12 @@ export default {
   width: 100%;
   padding: $base 0;
   background: $color-background;
+
+  &__title {
+    text-align: center;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-size: $base * 1.25;
+  }
 }
 </style>
