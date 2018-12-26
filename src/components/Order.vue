@@ -26,6 +26,7 @@ export default {
       model: {
         name: '',
         phone: '',
+        address: '',
         comment: '',
         // isAgree: false,
       },
@@ -47,6 +48,15 @@ export default {
             model: 'phone',
             id: 'phone',
             placeholder: 'Ваш телефон',
+            required: true,
+          },
+          {
+            type: 'input',
+            inputType: 'text',
+            label: 'Ваш адрес',
+            model: 'address',
+            id: 'address',
+            placeholder: 'Ваш адрес',
             required: true,
           },
           {
@@ -138,14 +148,15 @@ export default {
 @import "~@/styles/_globals";
 
 .form {
+  padding: 0 $base * 2 $base;
   & .form-group + .form-group {
-    margin-top: $base;
+    margin-top: $base * 0.5;
   }
 
   & fieldset {
     border: 0;
     padding: 0;
-    margin: 0 0 $base;
+    margin: 0 0 $base * 0.5;
   }
   & label {
     display: none;
@@ -153,11 +164,11 @@ export default {
   & input,
   & textarea {
     box-sizing: border-box;
-    padding: $base/2;
+    padding: $base * 0.25 $base * 0.5;
     width: 100%;
     background: $color-background;
     border: 1px solid $color-unactive;
-    border-radius: $base/4;
+    border-radius: $base * 0.25;
 
     &:focus {
       outline: none;
