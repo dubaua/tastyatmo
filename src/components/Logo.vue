@@ -1,6 +1,6 @@
 <template lang="pug">
   router-link(to="/").logo
-    icon(glyph="logo--parts", :width="240", :height="240")
+    icon(glyph="logo--parts", :width="180", :height="180")
 </template>
 
 <script>
@@ -11,6 +11,7 @@ export default {
 
 <style lang="scss">
 .logo {
+  margin-top: 10px;
   display: inline-block;
   line-height: 0;
   text-align: center;
