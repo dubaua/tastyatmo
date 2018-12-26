@@ -10,13 +10,12 @@ const createProduct = p => ({
   amount: 1,
   price: p.versions ? p.versions[p.chosenVersion].price : p.price,
   title: p.title,
-  details: p.versions ? p.versions[p.chosenVersion].measure : '',
+  details: p.versions ? p.versions[p.chosenVersion].measure : p.details ? p.details : '',
 });
 
 // getters
 const getters = {
-  totalCost: state =>
-    Object.keys(state).reduce((sum, cartId) => sum + state[cartId].price * state[cartId].amount, 0),
+  totalCost: state => Object.keys(state).reduce((sum, cartId) => sum + state[cartId].price * state[cartId].amount, 0),
   totalAmount: state => Object.keys(state).reduce((sum, cartId) => sum + state[cartId].amount, 0),
   amountInCart: state => id => (state[id] ? state[id].amount : 0),
 };
@@ -24,6 +23,7 @@ const getters = {
 // actions
 const actions = {
   addToCart({ state, commit }, product) {
+    console.log(product);
     const position = createProduct(product);
     if (typeof state[position.cartId] !== 'undefined') {
       commit('changeAmount', { cartId: position.cartId, modifier: 1 });

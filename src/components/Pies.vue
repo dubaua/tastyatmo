@@ -1,6 +1,35 @@
 <template lang="pug">
 .pies.container
   .row
+    .col.col-xs-12.col-sm-6.col-lg-6.col-xxl-6
+      .pies__constructor
+        .row
+          .col-xs-12.typography
+            h1 Соберите свой пирог
+        .row
+          .col-xs-12.col-xxl-6
+            .pies__parameter
+              .typography
+                h2 Какую любите начинку?
+              .pies__option(
+                v-for="filling in piesConfig.fillingTypes"
+                @click="setOptionByKey('filling', filling.id)"
+                :class="{'pies__option--active': filling.id === chosen.filling}") {{ filling.title }}
+          .col-xs-12.col-xxl-6
+            .pies__parameter
+              .typography
+                h2 Подходящий размер?
+              .pies__option(
+                v-for="weight in piesConfig.weightTypes"
+                @click="setOptionByKey('weight', weight.id)"
+                :class="{'pies__option--active': weight.id === chosen.weight}") {{ weight.amount }}кг
+            .pies__parameter
+              .typography
+                h2 Какое тесто предпочитаете?
+              .pies__option(
+                v-for="dough in piesConfig.doughTypes"
+                @click="setOptionByKey('dough', dough.id)"
+                :class="{'pies__option--active': dough.id === chosen.dough}") {{ dough.title }}
     .col.col-xs-12.col-sm-6.col-lg-4.col-xxl-3
       .pies__card
         .pies__preview
@@ -12,31 +41,6 @@
           .pies__price {{ piePrice }} ₽
           base-button(@click="addToCart(composedPie)").pies__button.button--wide
             | {{ amount > 0 ? 'В корзине ' + amount : 'Заказать'}}
-    .col.col-xs-12.col-sm-6.col-lg-8.col-xxl-9
-      .pies__constructor.typography
-        h1 Соберите свой пирог
-        h2 Какую любите начинку?
-        .pies__select
-          .pies__option(
-            v-for="filling in piesConfig.fillingTypes"
-            @click="setOptionByKey('filling', filling.id)"
-            :class="{'pies__option--active': filling.id === chosen.filling}"
-          ) {{ filling.title }}
-        h2 Подходящий размер?
-        .pies__select
-          .pies__option(
-            v-for="weight in piesConfig.weightTypes"
-            @click="setOptionByKey('weight', weight.id)"
-            :class="{'pies__option--active': weight.id === chosen.weight}"
-          ) {{ weight.amount }}кг
-        h2 Какое тесто предпочитаете?
-        .pies__select
-          .pies__option(
-            v-for="dough in piesConfig.doughTypes"
-            @click="setOptionByKey('dough', dough.id)"
-            :class="{'pies__option--active': dough.id === chosen.dough}"
-          ) {{ dough.title }}
-
 </template>
 
 <script>
@@ -60,7 +64,7 @@ export default {
       && this.piesConfig.fillingTypes) {
         const dough = this.piesConfig.doughTypes[this.chosen.dough].title.replace('ое', 'ый');
         const filling = this.piesConfig.fillingTypes[this.chosen.filling].title;
-        return ` ${dough} пирог ${filling}`;
+        return `${dough} пирог ${filling}`;
       }
       return 'Загрузка';
     },
@@ -87,8 +91,8 @@ export default {
     composedPie() {
       return {
         amount: 1,
-        cartId: `pie_fill-${this.chosen.filling}_dough-${this.chosen.dough}_amount-${this.chosen.weight}`,
-        details: '',
+        _id: `pie_fill-${this.chosen.filling}_dough-${this.chosen.dough}_amount-${this.chosen.weight}`,
+        details: `${this.chosen.weight} кг`,
         price: this.piePrice,
         title: this.pieTitle,
       };
@@ -134,44 +138,36 @@ export default {
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba($color-shade, 0.08);
     overflow: hidden;
-    padding: $base $base * 1.5;
+    padding: $base * 2 $base * 3;
+    height: 100%;
+    box-sizing: border-box;
   }
-  &__select {
-    display: flex !important;
-    flex-wrap: nowrap;
-    margin: $base 0;
-    border-radius: $base * 0.25;
-    max-width: $base * 32;
-    background: $color-background-unactive;
-    color: $color-unactive;
+  &__parameter {
+    margin-bottom: $base * 2;
   }
   &__option {
-    flex-grow: 1;
-    margin: 0 $base * -0.5;
-    padding: $base * 0.33 $base * 0.5;
-    border: 1px solid transparent;
-    border-radius: $base * 0.25;
+    margin-bottom: $base;
     cursor: pointer;
-    font-size: $base * 0.8;
-    text-align: center;
     transition: margin $timing ease, padding $timing ease;
-    &:first-child {
-      margin-left: 0;
-      padding-left: 0;
-    }
-    &:last-child {
-      margin-right: 0;
-      padding-right: 0;
+    &::before {
+      content: "";
+      display: inline-block;
+      vertical-align: bottom;
+      width: $base;
+      height: $base;
+      border-radius: 50%;
+      margin-right: $base * 0.5;
+      border: 1px solid $color-text;
     }
     &--active {
-      margin: 0;
-      padding-left: 0;
-      padding-right: 0;
       color: $color-primary;
-      background: $color-background;
-      border-color: $color-primary;
+      &::before {
+        background: $color-primary;
+        box-shadow: inset 0 0 0 $base * 0.25 $color-text--contrast;
+      }
     }
   }
+
   &__action {
     display: flex;
     align-items: center;
