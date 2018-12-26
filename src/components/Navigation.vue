@@ -36,8 +36,8 @@ export default {
         //   label: 'Напитки',
         // },
         {
-          to: '/delivery',
-          label: 'Доставка',
+          to: '/contact-and-delivery',
+          label: 'Контакты и доставка',
         },
         // {
         //   to: '/contact',
