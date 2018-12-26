@@ -32,5 +32,6 @@ keys.forEach((key) => {
 });
 
 store.dispatch('getPiesConfig');
+store.dispatch('getBanners');
 
 export default store;

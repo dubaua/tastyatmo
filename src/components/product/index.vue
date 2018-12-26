@@ -16,10 +16,10 @@
             v-for="(card, id, index) in products",
             :style="'order: '+index")
             card(:product="card")
-          .col.col-xs-12.col-sm-6.col-lg-4.col-xxl-3.col-xs-order-2.col-sm-order-2.col-lg-order-1.col-xxl-order-2
-            banner(src="/static/banner-5-1.png", background="blank")
-          .col.col-xs-12.col-sm-6.col-lg-4.col-xxl-3.col-xs-order-5.col-sm-order-4.col-xxl-order-6
-            banner(src="/static/banner-6-1.png", background="background")
+          .col.col-xs-12.col-sm-6.col-lg-4.col-xxl-3(
+            v-for="banner in banners"
+            :class="getBannerClasses(banner.ordering)")
+            banner(:src="banner.image.path", :background="banner.background")
         .col.col-xs-12(v-else)
           | Нет товаров
 </template>
@@ -39,8 +39,19 @@ export default {
     products() {
       return this.$store.state.products[this.currentProduct];
     },
+    banners() {
+      return this.$store.state.banners.items;
+    },
     description() {
       return this.$store.state.productDescription[this.currentProduct];
+    },
+  },
+  methods: {
+    getBannerClasses(ordering) {
+      if (ordering) {
+        return ordering.map(config => `col-${config.breakpoint}-order-${config.order}`).join(' ');
+      }
+      return '';
     },
   },
 };

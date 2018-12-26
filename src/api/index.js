@@ -23,6 +23,10 @@ const getProductsByKey = key => fetch(`/cockpit/api/collections/get/${key}?token
   .then(response => response.json())
   .then(blob => blob.entries.map(prepareProduct));
 
+const getCollectionByKey = key => fetch(`/cockpit/api/collections/get/${key}?token=${process.env.VUE_APP_API_KEY}`)
+  .then(response => response.json())
+  .then(blob => blob.entries);
+
 const getRegionByKey = key => fetch(`/cockpit/api/regions/data/${key}?token=${process.env.VUE_APP_API_KEY}`)
   .then(response => response.json())
   .then(blob => blob);
@@ -49,6 +53,7 @@ const saveOrder = order => fetch(`/cockpit/api/collections/save/orders?token=${p
 
 export default {
   getProductsByKey,
+  getCollectionByKey,
   getRegionByKey,
   sendForm,
   saveOrder,
