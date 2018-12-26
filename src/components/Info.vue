@@ -1,8 +1,8 @@
 <template lang="pug">
   .info
-    .info__block Находимся на Пр. Победы 392
-    .info__block Звоните 223–64–33
-    .info__block Пишите atmosphere@vkusa.ru
+    .info__block Ежедневно с 10:00 до 23:00.
+    .info__block Молодогвардейцев 76,
+    .info__block +7 (351) 225-10-78
 </template>
 
 <script>
