@@ -17,16 +17,19 @@
         p.delivery__details
           | Доставка от 500&nbsp;₽, стоимость доставки 100&nbsp;₽.
           | Бесплатная доставка от 800&nbsp;₽.
+          | Время доставки: 1–1.5 часа.
       .delivery__zone
         .delivery__legend.delivery__legend--yellow
         p.delivery__details
           | Доставка от 500&nbsp;₽, стоимость доставки 150&nbsp;₽.
           | Бесплатная доставка от 1000&nbsp;₽.
+          | Время доставки: 1–1.5 часа ± 15 минут.
       .delivery__zone
         .delivery__legend.delivery__legend--red
         p.delivery__details
           | Доставка от 500&nbsp;₽. стоимость доставки 200&nbsp;₽.
           | Бесплатная доставка от 1500&nbsp;₽.
+          | Время доставки: 1.5–2 часа.
     iframe.delivery__map(src="http://xn----7sbabjp2blsvjgdxi.xn--p1ai/map/")
 </template>
 
