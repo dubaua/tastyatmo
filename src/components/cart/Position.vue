@@ -1,5 +1,5 @@
 <template lang="pug">
-  .position
+  .position(:class="{'position--compact': isCompact}")
     .position__title {{position.title}} {{position.details}}
     .position__status
       button.position__button(
@@ -22,7 +22,14 @@ import { mapActions } from 'vuex';
 export default {
   name: 'Position',
   props: {
-    position: Object,
+    position: {
+      type: Object,
+      required: false,
+    },
+    isCompact: {
+      type: Boolean,
+      required: false,
+    },
   },
   methods: {
     ...mapActions(['changeAmount']),
@@ -33,7 +40,9 @@ export default {
 <style lang="scss">
 @import "~@/styles/_globals";
 .position {
+  $block: &;
   margin-bottom: $base;
+
   &__button {
     display: inline-block;
     background: none;
@@ -47,6 +56,33 @@ export default {
     margin-top: $base * 0.25;
     * {
       margin: 0 $base * 0.5;
+    }
+  }
+  &--compact {
+    @include from-breakpoint('xl') {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      &:before {
+        content: '';
+        left: 0;
+        right: 0;
+        bottom: 7px;
+        height: 1px;
+        position: absolute;
+        background: $color-background-unactive;
+      }
+      #{$block}__title {
+        background: $color-background;
+        position: relative;
+        padding-right: $base * 0.5;
+      }
+      #{$block}__status {
+        background: $color-background;
+        position: relative;
+        padding-left: $base * 0.5;
+        margin-top: 0;
+      }
     }
   }
 }

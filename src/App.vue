@@ -37,7 +37,7 @@
       transition(name="fade")
         .cart-popup(v-if="page.isCartOpen")
           .cart-popup__title Корзина
-          cart
+          cart(isCompact)
           order
 </template>
 
@@ -112,6 +112,7 @@ export default {
 
   &__cart {
     margin-top: auto;
+    overflow: auto;
   }
 }
 
@@ -127,10 +128,12 @@ export default {
   top: 50%;
   left: calc(50% - 150px);
   transform: translate(-50%, -50%);
-  max-width: 480px;
+  max-width: 680px;
   width: 100%;
   padding: $base 0;
   background: $color-background;
+  max-height: 100%;
+  overflow: auto;
 
   &__title {
     text-align: center;

@@ -7,7 +7,8 @@
         position(
           v-for="position in cart",
           :key="position.id",
-          :position="position")
+          :position="position"
+          :isCompact="isCompact")
       .cart__total
         .cart__total-label Всего
         .cart__total-sum {{totalCost}} ₽
@@ -23,6 +24,12 @@ export default {
   components: {
     Order,
     Position,
+  },
+  props: {
+    isCompact: {
+      type: Boolean,
+      required: false,
+    },
   },
   computed: {
     ...mapGetters(['totalCost', 'totalAmount']),
@@ -40,7 +47,6 @@ export default {
 <style lang="scss">
 @import "~@/styles/_globals";
 .cart {
-  overflow: auto;
   display: flex;
   flex-direction: column;
   padding: $base;

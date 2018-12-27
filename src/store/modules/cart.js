@@ -23,7 +23,6 @@ const getters = {
 // actions
 const actions = {
   addToCart({ state, commit }, product) {
-    console.log(product);
     const position = createProduct(product);
     if (typeof state[position.cartId] !== 'undefined') {
       commit('changeAmount', { cartId: position.cartId, modifier: 1 });
