@@ -93,6 +93,7 @@ export default {
         name: '',
         phone: '',
         comment: '',
+        address: '',
       };
     },
     send() {
@@ -109,6 +110,7 @@ export default {
       const form = {
         name: this.model.name,
         phone: this.model.phone,
+        address: this.model.address,
         comment: this.model.comment,
         order,
         total,
