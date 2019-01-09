@@ -44,14 +44,20 @@ export default {
 .delivery {
   position: relative;
   overflow: hidden;
-  height: calc(100vh - 56px);
+  @media screen and (min-height: 668px) {
+    height: calc(100vh - 56px);
+  }
   display: flex;
   flex-direction: column;
 
   &__map {
     flex-grow: 1;
     width: 100%;
-    height: calc(100vh - 66px);
+    height: 50vh;
+
+    @media screen and (min-height: 668px) {
+      height: calc(100vh - 66px);
+    }
   }
   &__info {
     padding: $base $base * 2;
