@@ -30,7 +30,7 @@
           | Доставка от 500&nbsp;₽. стоимость доставки 200&nbsp;₽.
           | Бесплатная доставка от 1500&nbsp;₽.
           | Время доставки: 1.5–2 часа.
-    iframe.delivery__map(src="http://xn----7sbabjp2blsvjgdxi.xn--p1ai/map/")
+    iframe.delivery__map(src="https://xn----7sbabjp2blsvjgdxi.xn--p1ai/map/")
 </template>
 
 <script>

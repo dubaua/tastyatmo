@@ -1,9 +1,7 @@
 <template lang="pug">
-.cart-status
-  base-button(size="wide", @click="toggleCart", v-if="totalAmount")
+.cart-status(v-if="totalAmount")
+  base-button(size="wide", @click="toggleCart")
     | {{cartLabel}}
-  template(v-else)
-    | Ваша корзина пуста
 </template>
 
 <script>

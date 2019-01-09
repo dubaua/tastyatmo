@@ -3,6 +3,8 @@
     .info__block Ежедневно с 10:00 до 23:00.
     .info__block Молодогвардейцев 76,
     .info__block +7 (351) 225-10-78
+    .info__block
+      a(href="https://vk.com/atmospherevkusa") Группа VK
 </template>
 
 <script>
@@ -22,7 +24,11 @@ export default {
 
   &__block {
     text-align: center;
-    margin: $base 0;
+    margin-bottom: $base;
+
+    a {
+      color: inherit;
+    }
   }
 }
 </style>
