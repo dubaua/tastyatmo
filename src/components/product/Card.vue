@@ -1,6 +1,13 @@
 <template lang="pug">
   .card
     .card__preview
+      .card__tags
+        .card__tag(
+          v-if="tag"
+          v-for="tag in product.tags"
+          :class="getTag(tag)"
+          )
+          | {{ tag }}
       img(:src="product.photo.path", :alt="product.title")
     .card__details
       .card__about.typography
@@ -62,6 +69,9 @@ export default {
         });
       }
     },
+    getTag(tag) {
+      return `card__tag--${tag}`;
+    },
   },
 };
 </script>
@@ -80,12 +90,11 @@ export default {
   background-color: $color-background;
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba($color-shade, 0.08);
-  overflow: hidden;
 
   &__preview {
-    border-radius: 2px 2px 0 0;
-    overflow: hidden;
+    position: relative;
     & img {
+      border-radius: 2px 2px 0 0;
       max-width: 100%;
       height: auto;
       display: block;
@@ -162,6 +171,35 @@ export default {
 
   &__button {
     max-width: 50%;
+  }
+
+  &__tags {
+    position: absolute;
+    top: $base * -1.25;
+    right: $base * -1.25;
+    display: flex;
+  }
+
+  &__tag {
+    background: $color-background--contrast;
+    color: $color-text--contrast;
+    font-size: $base * 0.75;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    width: $base * 2.5;
+    text-align: center;
+    padding: $base * 0.87 0;
+    margin-left: $base * 0.5;
+    border-radius: 50%;
+
+    &--hit {
+      background-color: $color-background--contrast;;
+    }
+
+    &--new {
+      background-color: $color-primary;
+    }
   }
 }
 </style>
