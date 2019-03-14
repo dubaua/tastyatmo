@@ -33,5 +33,7 @@ keys.forEach((key) => {
 
 store.dispatch('getPiesConfig');
 store.dispatch('getBanners');
+store.dispatch('getInfo');
+store.dispatch('getDelivery');
 
 export default store;

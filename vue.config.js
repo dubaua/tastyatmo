@@ -1,7 +1,7 @@
 module.exports = {
   runtimeCompiler: true,
   devServer: {
-    proxy: 'http://atmo.dubaua.ru/',
+    proxy: 'http://xn----7sbabjp2blsvjgdxi.xn--p1ai/',
   },
   chainWebpack: (config) => {
     config.module.rules.delete('svg');
