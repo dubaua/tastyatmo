@@ -31,6 +31,10 @@ export default {
           to: '/sushi',
           label: 'Суши',
         },
+        {
+          to: '/other',
+          label: 'Прочие товары',
+        },
         // {
         //   to: '/drinks',
         //   label: 'Напитки',

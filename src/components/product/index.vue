@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import Card from './Card';
+import Card from './Card.vue';
 
 export default {
   name: 'Product',
@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     currentProduct() {
-      return this.$route.params.productId || 'wok';
+      return this.$route.params.productId || 'pizza';
     },
     products() {
       return this.$store.state.products[this.currentProduct];

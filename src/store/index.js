@@ -23,7 +23,7 @@ const store = new Vuex.Store({
   plugins: [vuexPersist.plugin],
 });
 
-const keys = ['pizza', 'sushi', 'wok', 'drinks'];
+const keys = ['pizza', 'sushi', 'wok', 'drinks', 'other'];
 
 keys.forEach((key) => {
   Promise.all([

@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import ContactAndDelivery from '@/components/ContactAndDelivery';
-import Pies from '@/components/Pies';
-import Product from '@/components/product';
+import ContactAndDelivery from '@/components/ContactAndDelivery.vue';
+import Pies from '@/components/Pies.vue';
+import Product from '@/components/product/index.vue';
 
 Vue.use(Router);
 
