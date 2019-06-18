@@ -92,7 +92,7 @@ export default {
       return {
         amount: 1,
         _id: `pie_fill-${this.chosen.filling}_dough-${this.chosen.dough}_amount-${this.chosen.weight}`,
-        details: `${this.chosen.weight} кг`,
+        details: `${this.pieWeight} кг`,
         price: this.piePrice,
         title: this.pieTitle,
       };
