@@ -17,11 +17,11 @@ export default {
       menu: [
         {
           to: '/',
-          label: 'Wok',
+          label: 'Пицца',
         },
         {
-          to: '/pizza',
-          label: 'Пицца',
+          to: '/wok',
+          label: 'Wok',
         },
         {
           to: '/pies',
