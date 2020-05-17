@@ -5,54 +5,46 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 export default {
-  name: 'Navigation',
+  name: "Navigation",
   props: {
-    isCompact: Boolean,
+    isCompact: Boolean
   },
   data() {
     return {
       menu: [
         {
-          to: '/',
-          label: 'Пицца',
+          to: "/",
+          label: "Пицца"
         },
         {
-          to: '/wok',
-          label: 'Wok',
+          to: "/sushi",
+          label: "Суши"
         },
         {
-          to: '/pies',
-          label: 'Пироги',
-        },
-        {
-          to: '/sushi',
-          label: 'Суши',
-        },
-        {
-          to: '/other',
-          label: 'Прочие товары',
+          to: "/sets",
+          label: "Сеты"
         },
         // {
-        //   to: '/drinks',
-        //   label: 'Напитки',
+        //   to: "/shawarma",
+        //   label: "Шаурма"
         // },
         {
-          to: '/contact-and-delivery',
-          label: 'Контакты и доставка',
+          to: "/other",
+          label: "Прочие товары"
         },
-        // {
-        //   to: '/contact',
-        //   label: 'Контакты',
-        // },
-      ],
+        {
+          to: "/contact-and-delivery",
+          label: "Контакты и доставка"
+        }
+      ]
     };
   },
   methods: {
-    ...mapActions(['closeMenu']),
-  },
+    ...mapActions(["closeMenu"])
+  }
 };
 </script>
 
@@ -77,7 +69,7 @@ export default {
       position: relative;
 
       &:before {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         left: 50%;
@@ -89,7 +81,7 @@ export default {
       }
     }
 
-    @include from-breakpoint('xl') {
+    @include from-breakpoint("xl") {
       padding-bottom: $base * 1.5;
       padding-top: $base * 1.5;
     }

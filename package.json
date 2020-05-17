@@ -31,9 +31,10 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0-0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.13.1",
     "normalizr": "^3.3.0",
-    "sass-loader": "^7.0.1",
+    "sass": "^1.26.2",
+    "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.5.17"
   }
 }
